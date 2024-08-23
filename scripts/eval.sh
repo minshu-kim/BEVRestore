@@ -1,20 +1,9 @@
 SCALE=$1
 GPU=$2
+NUM_GPU=$(echo $GPU | tr ',' ' ' | wc -w)
 
-if [ $SCALE == "1" ] ; then
-  MPP=0_5
-else
-  MPP=$(($SCALE / 2))
-fi
-
-#CUDA_VISIBLE_DEVICES=$GPU torchpack dist-run -np 2 python tools/test.py \
-# configs/nuscenes/seg/TNN-X$SCALE.yaml \
-# runs/X$SCALE/latest.pth \
-# --eval map
-
-CUDA_VISIBLE_DEVICES=$GPU torchpack dist-run -np 2 python tools/test.py \
- configs/nuscenes/seg/TNN-X$SCALE.yaml \
- pretrained/TNN/X$SCALE.pth \
+CUDA_VISIBLE_DEVICES=$GPU torchpack dist-run -np $NUM_GPU python tools/test.py \
+ configs/nuscenes/seg/bevfusion-bevrestore-X$SCALE.yaml \
+ runs/bevfusion-bevrestore-X$SCALE/latest.pth \
  --eval map
-# --night true
-# --rainy true
+
