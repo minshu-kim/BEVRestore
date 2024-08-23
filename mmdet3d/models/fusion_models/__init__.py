@@ -1,2 +1,2 @@
 from .base import *
-from .tnn import *
+from .bevfusion_with_bevrestore import *

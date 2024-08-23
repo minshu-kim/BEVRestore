@@ -18,11 +18,11 @@ from mmdet3d.models.builder import (
 from mmcv.runner import auto_fp16, force_fp32
 from .base import Base3DFusionModel
 
-__all__ = ["TrumpetNeuralNetwork"]
+__all__ = ["BEVFusion_BEVRestore"]
 
 
 @FUSIONMODELS.register_module()
-class TrumpetNeuralNetwork(Base3DFusionModel):
+class BEVFusion_BEVRestore(Base3DFusionModel):
     def __init__(
         self,
         encoders: Dict[str, Any],

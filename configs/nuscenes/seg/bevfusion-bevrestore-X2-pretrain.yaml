@@ -2,9 +2,8 @@ voxel_size: [0.125, 0.125, 0.2]
 point_cloud_range: [-52.0, -52.0, -5.0, 52.0, 52.0, 3.0]
 
 model:
-  type: TrumpetNeuralNetwork
+  type: BEVFusion_BEVRestore
 
-  finetune: true
   encoders:
     camera:
       backbone:
@@ -117,10 +116,12 @@ model:
         input_scope: [[-52.0, 52.0, 1.0], [-52.0, 52.0, 1.0]]
         output_scope: [[-50.0, 50.0, 1.0], [-50.0, 50.0, 1.0]]
         scale_factor: 2
+      finetune: false
+
 
 optimizer:
   type: AdamW
-  lr: 8.0e-5
+  lr: 1.0e-4
   weight_decay: 0.01
   paramwise_cfg:
     custom_keys:
@@ -134,21 +135,10 @@ optimizer_config:
     max_norm: 35
     norm_type: 2
 
-# 성공할수만 있다면 Cyclic > CosineAnnealing > StepLR.
-# BroadBEV 스케쥴러 잘 찾으면 다시 sota 갱신할수도 있음.
-
-# CosineAnnealing: epoch 끝날때마다 lr 낮추는 스케쥴러.
-# Cyclic: 삼각함수처럼 lr 올라갔다가 내려가는 스케쥴러.
-# 한번 망가진 모델은 lr 바꿔서 돌려도 회복이 안됐음.
-
 lr_config:
-  policy: CosineAnnealing
-  warmup: linear
-  warmup_iters: 500
-  warmup_ratio: 0.33333333
-  min_lr_ratio: 1.0e-3
+  policy: cyclic
 
 momentum_config:
   policy: cyclic
 
-max_epochs: 6
+max_epochs: 20

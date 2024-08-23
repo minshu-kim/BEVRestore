@@ -1,8 +1,8 @@
-voxel_size: [0.25, 0.25, 0.2]
+voxel_size: [0.125, 0.125, 0.2]
 point_cloud_range: [-52.0, -52.0, -5.0, 52.0, 52.0, 3.0]
 
 model:
-  type: TrumpetNeuralNetwork
+  type: BEVFusion_BEVRestore
 
   finetune: true
   encoders:
@@ -47,8 +47,8 @@ model:
         out_channels: 80
         image_size: ${image_size}
         feature_size: ${[image_size[0] // 8, image_size[1] // 8]}
-        xbound: [-52.0, 52.0, 1.0]
-        ybound: [-52.0, 52.0, 1.0]
+        xbound: [-52.0, 52.0, 0.5]
+        ybound: [-52.0, 52.0, 0.5]
         zbound: [-10.0, 10.0, 20.0]
         dbound: [1.0, 60.0, 0.5]
         downsample: 2
@@ -57,11 +57,11 @@ model:
         max_num_points: 10
         point_cloud_range: ${point_cloud_range}
         voxel_size: ${voxel_size}
-        max_voxels: [30000, 40000]
+        max_voxels: [90000, 120000]
       backbone:
         type: SparseEncoder
         in_channels: 5
-        sparse_shape: [416, 416, 41]
+        sparse_shape: [832, 832, 41]
         output_channels: 128
         order:
           - conv
@@ -111,14 +111,12 @@ model:
       use_conv_for_no_stride: true
   heads:
     map:
-      type: MapSegmentationHeadSRTransformer
+      type: MapSegmentationHeadSR
       in_channels: 512
       grid_transform:
-        input_scope: [[-52.0, 52.0, 2.0], [-52.0, 52.0, 2.0]]
-        output_scope: [[-50.0, 50.0, 2.0], [-50.0, 50.0, 2.0]]
-        scale_factor: 4
-      num_sa: 8
-      num_heads: 8
+        input_scope: [[-52.0, 52.0, 1.0], [-52.0, 52.0, 1.0]]
+        output_scope: [[-50.0, 50.0, 1.0], [-50.0, 50.0, 1.0]]
+        scale_factor: 2
 
 optimizer:
   type: AdamW
@@ -146,4 +144,4 @@ lr_config:
 momentum_config:
   policy: cyclic
 
-max_epochs: 10
+max_epochs: 6

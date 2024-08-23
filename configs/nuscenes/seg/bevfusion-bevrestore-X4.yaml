@@ -1,8 +1,8 @@
-voxel_size: [0.1, 0.1, 0.2]
-point_cloud_range: [-51.2, -51.2, -5.0, 51.2, 51.2, 3.0]
+voxel_size: [0.25, 0.25, 0.2]
+point_cloud_range: [-52.0, -52.0, -5.0, 52.0, 52.0, 3.0]
 
 model:
-  type: TrumpetNeuralNetwork
+  type: BEVFusion_BEVRestore
 
   finetune: true
   encoders:
@@ -47,8 +47,8 @@ model:
         out_channels: 80
         image_size: ${image_size}
         feature_size: ${[image_size[0] // 8, image_size[1] // 8]}
-        xbound: [-51.2, 51.2, 0.4]
-        ybound: [-51.2, 51.2, 0.4]
+        xbound: [-52.0, 52.0, 1.0]
+        ybound: [-52.0, 52.0, 1.0]
         zbound: [-10.0, 10.0, 20.0]
         dbound: [1.0, 60.0, 0.5]
         downsample: 2
@@ -61,7 +61,7 @@ model:
       backbone:
         type: SparseEncoder
         in_channels: 5
-        sparse_shape: [1024, 1024, 41]
+        sparse_shape: [416, 416, 41]
         output_channels: 128
         order:
           - conv
@@ -114,9 +114,9 @@ model:
       type: MapSegmentationHeadSR
       in_channels: 512
       grid_transform:
-        input_scope: [[-51.2, 51.2, 0.8], [-51.2, 51.2, 0.8]]
-        output_scope: [[-50.0, 50.0, 0.5], [-50.0, 50.0, 0.5]]
-        scale_factor: 1
+        input_scope: [[-52.0, 52.0, 2.0], [-52.0, 52.0, 2.0]]
+        output_scope: [[-50.0, 50.0, 2.0], [-50.0, 50.0, 2.0]]
+        scale_factor: 4
 
 optimizer:
   type: AdamW
