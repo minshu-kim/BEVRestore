@@ -2,6 +2,10 @@
 
 ![ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/65441c60-d0b9-43f6-b0c9-00f496d2821e)
 
+# News
+- [24-09-18] The code is released on this repository. (Setup details will be added.)
+- [24-09-18] BEVRestore is accepted at Robotics and Automation Letters (RA-L).
+- [24-05-02] BEVRestore is released on [arXiv](https://arxiv.org/abs/2405.01016).
 
 # Model Zoo
 
