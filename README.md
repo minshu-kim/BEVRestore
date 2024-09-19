@@ -48,8 +48,10 @@ We measured training memory containing tensor cache and inference time latency w
 ### 2. HD Map Construction
 
 - w/ HDMapNet ([repository](https://github.com/minshu-kim/BEVRestore-HDMapNet)):
-  
+
 | model                      | X4 BEVRestore | Latency | Memory   | mAP | mIoU       |weight |
 | -------------------------- | :-------------: | :-------------: | :----------: | :----------: | :----------: |---------- |
 | HDMapNet |            | **38ms**         | **1.9GB**      | 23.0 | 34.2     |[model](https://drive.google.com/file/d/14UacCCDadgA3L2BRUu62c4XuV7ppXYBd/view?usp=sharing)|
 | HDMapNet |     V      | 58ms         | 3.5GB | **32.1**     | **36.4**     |[LR](https://drive.google.com/file/d/1WsIigx9nylSms0KDhUdqejNGtxdjRqFs/view?usp=sharing) / [HR](https://drive.google.com/file/d/1n5rPKPsmYgXhiRIGrCVZSvhVPP-FnI3Z/view?usp=sharing)|
+
+Note: For some vanilla model cases, restoration costs are larger than BEV encoding memory as in this case.
