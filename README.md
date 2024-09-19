@@ -7,8 +7,8 @@
   - BEVRestore provides memory and computational efficiency for encoding of high-resolution (HR) BEV representation.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/39c5e3ca-5ad2-45be-989f-4af38a6347b9" width="325">
-  <img src="https://github.com/user-attachments/assets/65441c60-d0b9-43f6-b0c9-00f496d2821e" width="510">
+  <img src="https://github.com/user-attachments/assets/39c5e3ca-5ad2-45be-989f-4af38a6347b9" width="250">
+  <img src="https://github.com/user-attachments/assets/65441c60-d0b9-43f6-b0c9-00f496d2821e" width="450">
 </p>
 
 # News
