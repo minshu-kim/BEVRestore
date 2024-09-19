@@ -1,7 +1,7 @@
 # BEVRestore (2024 RA-L)
 [\[**Arxiv**\]](https://arxiv.org/abs/2405.01016) [**Project Page** (TBD)]
 
-### Our introduced BEVRestore is a novel super-resolution of bird's eye view (BEV).
+### Novel bird's eye view (BEV) super-resolution
   
   - The method is a plug-and-play mechanism and applicable to any BEV map construction.
   - BEVRestore provides cost efficiency with fine-grained encoding of high-resolution (HR) BEV representation.
