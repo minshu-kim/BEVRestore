@@ -1,8 +1,14 @@
-# BEVRestore (2024 RA-L)
-[\[**Arxiv**\]](https://arxiv.org/abs/2405.01016) [**Project Page** (TBD)]
+# BEVRestore, 2024 Robotics and Automation Letters (RA-L)
 
-### Novel bird's eye view (BEV) super-resolution
-  
+<h3>
+  <b> Addressing Diverging Training Costs using BEVRestore <br>
+    for High-resolution Bird's Eye View Map Construction </b>
+</h3>
+[<b><a href="https://arxiv.org/abs/2405.01016">Arxiv</a></b>] [<b>Project Page (TBD)</b>]
+
+## What is BEVRestore? 
+
+  - A novel mechanism containing our introduced bird's eye view (BEV) super-resolution.
   - The method is a plug-and-play mechanism and applicable to any BEV map construction.
   - BEVRestore provides cost efficiency with fine-grained encoding of high-resolution (HR) BEV representation.
 
@@ -12,16 +18,16 @@
   <img src="https://github.com/user-attachments/assets/65441c60-d0b9-43f6-b0c9-00f496d2821e" width="470">
 </p>
 
-# News
+## News
 - [24-09-18] The code is released on this repository. (Setup details will be added.)
 - [24-09-18] BEVRestore is accepted at Robotics and Automation Letters (RA-L).
 - [24-05-02] BEVRestore is released on [arXiv](https://arxiv.org/abs/2405.01016).
 
-# Model Zoo
+## Model Zoo
 
 We measured training memory containing tensor cache and inference time latency with a single batch.
 
-### BEV Segmentation
+### 1. BEV Segmentation
 
 - w/ BEVFusion (this repository):
 
@@ -39,7 +45,7 @@ We measured training memory containing tensor cache and inference time latency w
 | BEVFomer-small  |           | 125        | 9.9GB      | 40.5     |[model](https://drive.google.com/file/d/1Fn9ErCrWheNFfnCK3EZ1VmCPceUTxS5G/view?usp=share_link)|
 | BEVFomer-small |     V      | **104**         | **2.5GB**     | **41.3**     |[LR](https://drive.google.com/file/d/1tUYpqrN6qXYd9uqS2PVViXG7i2GAXpwN/view?usp=sharing) / [HR](https://drive.google.com/file/d/1pNBIRXZl1ZbhupdWAfTGngbOnV_4qIn7/view?usp=share_link)|
 
-### HD Map Construction
+### 2. HD Map Construction
 
 - w/ HDMapNet ([repository](https://github.com/minshu-kim/BEVRestore-HDMapNet)):
   
