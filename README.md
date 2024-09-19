@@ -1,4 +1,4 @@
-# BEVRestore, 2024 Robotics and Automation Letters (RA-L)
+# BEVRestore
 
 <h3>
   <b> Addressing Diverging Training Costs using BEVRestore <br>
