@@ -4,7 +4,7 @@
   <b> Addressing Diverging Training Costs using BEVRestore <br>
     for High-resolution Bird's Eye View Map Construction </b>
 </h3>
-[<b><a href="https://arxiv.org/abs/2405.01016">Arxiv</a></b>] [<b>Project Page (TBD)</b>]
+[<b><a href="https://arxiv.org/abs/2405.01016">Arxiv</a></b>] [<b><a href="https://minshu-kim.github.io/bevrestore.github.io/">Project Page</a></b>]
 
 ## What is BEVRestore? 
 
